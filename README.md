@@ -2,6 +2,8 @@
 
 This is a golang client for the [AssemblyAI API](https://docs.assemblyai.com/overview/getting-started).
 
+> This library is new, unversioned and mostly built for my own purposes.  Use at your own risk or submit a PR to improve :)
+
 ## Features
 
 * Start transcription with `audio_url`

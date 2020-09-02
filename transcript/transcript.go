@@ -1,12 +1,13 @@
 package transcript
 
 import (
+	"bytes"
 	"encoding/json"
 	"log"
 )
 
-// Transcript is the JSON body to pass to the API
-type Transcript struct {
+// Request is the JSON body to pass to the API
+type Request struct {
 	AcousticModel  string      `json:"acoustic_model,omitempty"`
 	AudioEndAt     interface{} `json:"audio_end_at,omitempty"`
 	AudioStartFrom interface{} `json:"audio_start_from,omitempty"`
@@ -39,6 +40,16 @@ type Response struct {
 	Words             []interface{} `json:"words,omitempty"`
 }
 
+// Reader returns a bytes.Reader from Request
+func (t *Request) Reader() *bytes.Reader {
+	return bytes.NewReader(t.Bytes())
+}
+
+// Reader returns a bytes.Reader from Response
+func (t *Response) Reader() *bytes.Reader {
+	return bytes.NewReader(t.Bytes())
+}
+
 // Bytes returns the Bytes from Response
 func (t *Response) Bytes() []byte {
 	b, err := json.Marshal(t)
@@ -49,8 +60,8 @@ func (t *Response) Bytes() []byte {
 
 }
 
-// Bytes returns the Bytes from Transcript
-func (t *Transcript) Bytes() []byte {
+// Bytes returns the Bytes from Request
+func (t *Request) Bytes() []byte {
 	b, err := json.Marshal(t)
 	if err != nil {
 		log.Print(err)
@@ -59,12 +70,12 @@ func (t *Transcript) Bytes() []byte {
 
 }
 
-// NewTranscript creates a new transcript request
-func NewTranscript(opts ...Option) *Transcript {
-	tr := &Transcript{}
+// NewRequest creates a new transcript request
+func NewRequest(opts ...Option) *Request {
+	tr := &Request{}
 	for _, opt := range opts {
 		// Call the option giving the instantiated
-		// *Transcript as the argument
+		// *Request as the argument
 		opt(tr)
 	}
 

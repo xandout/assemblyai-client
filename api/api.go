@@ -64,7 +64,7 @@ func (c *AssemblyAIClient) sendRequest(req *http.Request, v interface{}) error {
 }
 
 // StartTranscript submits the API request to start transcribing a file
-func (c *AssemblyAIClient) StartTranscript(tr transcript.Transcript) (transcript.Response, error) {
+func (c *AssemblyAIClient) StartTranscript(tr transcript.Request) (transcript.Response, error) {
 	ctr := transcript.Response{}
 	req, err := http.NewRequest("POST", fmt.Sprintf("%s/transcript", c.BaseURL), bytes.NewBuffer(tr.Bytes()))
 

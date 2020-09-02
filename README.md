@@ -35,7 +35,7 @@ import (
 
 func main() {
     api := api.NewClient("YOUR-API-KEY")
-    tr := transcript.NewTranscript(
+    tr := transcript.NewRequest(
         transcript.WithAudioURL("https://you-audio-file-host.com/your-file.mp3"), 
         transcript.WithSpeakerLabels(),
     )

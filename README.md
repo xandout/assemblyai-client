@@ -1,5 +1,7 @@
 # AssemblyAI Golang Client (WIP)
 
+This is a golang client for the [AssemblyAI API](https://docs.assemblyai.com/overview/getting-started).
+
 ## Features
 
 * Start transcription with `audio_url`

@@ -39,6 +39,16 @@ type Response struct {
 	Words             []interface{} `json:"words,omitempty"`
 }
 
+// Bytes returns the Bytes from Response
+func (t *Response) Bytes() []byte {
+	b, err := json.Marshal(t)
+	if err != nil {
+		log.Print(err)
+	}
+	return b
+
+}
+
 // Bytes returns the Bytes from Transcript
 func (t *Transcript) Bytes() []byte {
 	b, err := json.Marshal(t)

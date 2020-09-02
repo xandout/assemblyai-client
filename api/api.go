@@ -81,9 +81,9 @@ func (c *AssemblyAIClient) StartTranscript(tr transcript.Transcript) (transcript
 }
 
 // GetTranscript submits the API request to start transcribing a file
-func (c *AssemblyAIClient) GetTranscript(tr transcript.Response) (transcript.Response, error) {
+func (c *AssemblyAIClient) GetTranscript(transcriptID string) (transcript.Response, error) {
 	ctr := transcript.Response{}
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/transcript/%s", c.BaseURL, tr.ID), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/transcript/%s", c.BaseURL, transcriptID), nil)
 
 	if err != nil {
 		return ctr, err

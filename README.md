@@ -2,7 +2,16 @@
 
 This is a golang client for the [AssemblyAI API](https://docs.assemblyai.com/overview/getting-started).
 
-> This library is new, unversioned and mostly built for my own purposes.  Use at your own risk or submit a PR to improve :)
+> This library is new and mostly built for my own purposes.  Use at your own risk or submit a PR to improve :)
+
+## Version history
+
+### v0.0.2
+* Renamed `Transcript` to `Request`
+* Added `Reader` method on `Request` and `Response` to aid downstream users
+
+### v0.0.1
+* Initial version
 
 ## Features
 
